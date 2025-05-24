@@ -6,3 +6,4 @@ requests
 langdetect
 googletrans==4.0.0-rc1
 langchain
+langchain-community==0.0.17
