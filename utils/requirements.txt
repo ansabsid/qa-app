@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+openai
+langchain
+faiss-cpu
+langdetect
+googletrans==4.0.0-rc1
