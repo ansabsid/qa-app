@@ -3,7 +3,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 
-def load_and_index_text(path="data/textbook.txt"):
+def load_and_index_text(path="data/quran_english.pdf"):
     # Load raw textbook content
     loader = TextLoader(path)
     documents = loader.load()
