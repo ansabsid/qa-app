@@ -1,11 +1,11 @@
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
 
 def load_and_index_text(path="data/quran_english.pdf"):
-    # Load raw textbook content
-    loader = TextLoader(path)
+    # Load PDF document
+    loader = PyPDFLoader(path)
     documents = loader.load()
 
     # Split into chunks for better indexing
