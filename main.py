@@ -4,7 +4,7 @@ from langdetect import detect
 from googletrans import Translator
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
-from utils.preloader import load_and_index_text
+from preloader import load_and_index_text
 
 # Initialize FastAPI app
 app = FastAPI()
