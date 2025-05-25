@@ -9,3 +9,5 @@ langchain
 langchain-community==0.0.17
 pypdf
 tiktoken
+faiss-cpu
+sentence-transformers
