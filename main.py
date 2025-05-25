@@ -9,7 +9,9 @@ from preloader import load_and_index_text
 # Initialize FastAPI app
 app = FastAPI()
 translator = Translator()
-
+@app.get("/")
+async def root():
+    return {"message": "API is live and working!"}
 # Allow frontend and browser access
 app.add_middleware(
     CORSMiddleware,
