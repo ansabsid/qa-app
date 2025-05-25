@@ -2,26 +2,26 @@ import os
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 
 def load_and_index_text(path="data/quran_english.pdf"):
     # Load PDF document
     loader = PyPDFLoader(path)
     documents = loader.load()
 
-    # Split into chunks for better indexing
+    # Split into chunks
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=100
     )
     chunks = splitter.split_documents(documents)
 
-    # Read OpenAI API key from environment
+    # Get OpenAI API key
     openai_api_key = os.getenv("OPENAI_API_KEY")
     if not openai_api_key:
         raise ValueError("OPENAI_API_KEY not set in environment variables.")
 
-    # Generate embeddings using OpenAI
+    # Generate embeddings
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     vector_db = FAISS.from_documents(chunks, embeddings)
 
